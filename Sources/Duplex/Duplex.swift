@@ -1,5 +1,4 @@
-@_exported
-import Common
+@_exported import Common
 
 public protocol Duplex: DuplexProtocol {
     init()
@@ -19,8 +18,8 @@ public extension Duplex {
 
 extension Duplex where Self: FixedSizeOutputProtocol {
     public static func hash(contentsOf bytes: some ByteSequence) -> FixedSizeOutput {
-        var sha1: Self = .init()
-        sha1.absorb(contentsOf: bytes)
-        return sha1.squeeze()
+        var duplex: Self = .init()
+        duplex.absorb(contentsOf: bytes)
+        return duplex.squeeze()
     }
 }

@@ -1,4 +1,3 @@
-//import Common
 import Duplex
 
 struct TestDuplex: Duplex {

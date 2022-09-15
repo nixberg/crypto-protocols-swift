@@ -1,6 +1,3 @@
-@_exported
-import Common
-
 public protocol FixedSizeOutputProtocol: DuplexProtocol {
     associatedtype FixedSizeOutput: ByteSequence
     
