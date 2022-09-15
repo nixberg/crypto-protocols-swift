@@ -23,3 +23,14 @@ extension Duplex where Self: FixedSizeOutputProtocol {
         return duplex.squeeze()
     }
 }
+
+extension Duplex where Self: VariableSizeOutputProtocol {
+    public static func hash(
+        contentsOf bytes: some ByteSequence,
+        outputByteCount: Int
+    ) -> VariableSizeOutput {
+        var duplex: Self = .init()
+        duplex.absorb(contentsOf: bytes)
+        return duplex.squeeze(outputByteCount: outputByteCount)
+    }
+}
